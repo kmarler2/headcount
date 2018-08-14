@@ -28,4 +28,12 @@ dataCleaner = (data) => {
     },{})
     return  dataObj
   }
+
+  findByName = (str) => {
+  if (!str) {
+    return
+  }
+  let cleanStr = str.toUpperCase()
+    return this.stats[cleanStr]
+  }
 }
