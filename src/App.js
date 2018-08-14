@@ -6,9 +6,15 @@ import DistrictRepository from './helper.js';
 const district = new DistrictRepository(data);
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      districtData: district.dataCleaner(data)
+    }
+  }
   render() {
     return (
-      <div>Welcome To Headcount 2.0</div>
+      <div>'hiii'</div>
     );
   }
 }
