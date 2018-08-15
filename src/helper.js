@@ -5,9 +5,8 @@ export default class DistrictRepository {
     this.stats = this.dataCleaner(data)
   }
 
-dataCleaner = (data) => {
+  dataCleaner = (data) => {
     let dataObj = data.reduce((dataObj, district) => {
-
       let location = district.Location.toUpperCase();
       let year = district.TimeFrame
       let stat = Math.round(district.Data * 1000)/1000;
@@ -58,5 +57,19 @@ findAverage = (str) => {
   })
 
   return Math.round((average / stats.length)*1000)/1000
+}
+
+compareDistrictAverages = (district1, district2) => {
+  let upperCaseDistrictOne = district1.toUpperCase()
+  let upperCaseDistrictTwo = district2.toUpperCase()
+
+  let districtOne = this.findAverage(district1.toUpperCase());
+  let districtTwo = this.findAverage(district2.toUpperCase());
+
+  return {
+    [upperCaseDistrictOne]: districtOne,
+    [upperCaseDistrictTwo]: districtTwo,
+    "compared": Math.round((districtOne / districtTwo)*1000)/1000 
+  }
 }
 }
