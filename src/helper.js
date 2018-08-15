@@ -48,4 +48,15 @@ dataCleaner = (data) => {
   })
   return obj
 }
+
+findAverage = (str) => {
+  let districtData = this.findByName(str)
+  let stats = Object.values(districtData.stats)
+
+  let average = stats.reduce((average, stat) => {
+    return average + stat
+  })
+
+  return Math.round((average / stats.length)*1000)/1000
+}
 }
