@@ -1,0 +1,26 @@
+input {
+  width: 40%;
+  height: 30px;
+  margin-left: 26.5%;
+  font-size: 25px;
+  padding: 5px;
+  margin-bottom: 60px;
+  box-shadow: 3px 3px 0px 0px gray;
+}
+
+input::placeholder {
+  font-size: 25px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.button {
+  height: 45px;
+  padding: 5px;
+  font-size: 25px;
+  color: #F7F7FF;;
+  background-color: #BDD4EA;
+  box-shadow: 3px 3px 0px 0px gray;
+}

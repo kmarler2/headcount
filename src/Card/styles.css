@@ -1,12 +1,12 @@
 .card {
   height: 350px;
   width: 23.6%;
-  border: 1px solid gray;
   display: inline-block;
   text-align: center;
   font-size: 20px;
   margin: 10px;
   background-color: #BDD5EA;
+  box-shadow: 3px 3px 0px 0px gray;
 }
 
 ul {
