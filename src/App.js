@@ -14,6 +14,33 @@ class App extends Component {
       districtData: district.dataCleaner(data)
     }
   }
+
+    findDistrict = (str) => {
+    this.setState({ districtData: district.findAllMatches(str) })
+  }
+
+  findDistrictByClick = (str) => {
+   let district = district.findByName(str)
+
+   if (!district.selected && Object.keys(this.state.comparedDistricts).length < 2) {
+     district.selected = true
+
+     this.setState({ comparedDistricts: {...this.state.comparedDistricts, [district.location]: district } })
+     this.setState({ districtData: {...this.state.districtData, [district.location]: district }})
+   } else if (district.selected === true && district.location === str) {
+     district.selected = false
+
+     Object.keys(this.state.comparedDistricts).reduce((acc, district) => {
+       if (this.state.comparedDistricts[district].selected) {
+         acc[this.state.comparedDistricts[district].location] = this.state.comparedDistricts[district]
+       }
+       this.setState({ comparedDistricts: acc})
+       return acc
+     },{})
+     this.setState({ districtData: {...this.state.districtData, [district.location]: district }})
+   }
+  }
+
   render() {
     return (
       <div>
