@@ -36,4 +36,16 @@ dataCleaner = (data) => {
   let cleanStr = str.toUpperCase()
     return this.stats[cleanStr]
   }
+
+  findAllMatches = (str = '') => {
+  const obj = {}
+  const matches = Object.values(this.stats).filter(district => {
+    return district.location.includes(str.toUpperCase())
+  })
+  matches.forEach(match => {
+    const key = match.location;
+    obj[key] = match
+  })
+  return obj
+}
 }
