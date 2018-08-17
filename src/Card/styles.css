@@ -3,10 +3,10 @@
   width: 23.6%;
   display: inline-block;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   margin: 10px;
   background-color: #BDD5EA;
-  box-shadow: 3px 3px 0px 0px gray;
+  box-shadow: 3px 3px 0px 0px black;
 }
 
 ul {

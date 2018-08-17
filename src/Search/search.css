@@ -1,15 +1,20 @@
 input {
   width: 40%;
-  height: 30px;
+  height: 49px;
   margin-left: 26.5%;
-  font-size: 25px;
-  padding: 5px;
+  font-size: 30px;
+  padding: 0px;
   margin-bottom: 60px;
-  box-shadow: 3px 3px 0px 0px gray;
+  box-shadow: 5px 5px 5px 0px black;
+  padding-left: 20px;
+  border: 0.5px solid black;
+  color: #577399;
+  background-color: #F7F7FF;
 }
 
 input::placeholder {
-  font-size: 25px;
+  font-size: 30px;
+  color: #577399;
 }
 
 input:focus {
@@ -17,10 +22,18 @@ input:focus {
 }
 
 .button {
-  height: 45px;
-  padding: 5px;
-  font-size: 25px;
-  color: #F7F7FF;;
-  background-color: #BDD4EA;
-  box-shadow: 3px 3px 0px 0px gray;
+  height: 50px;
+  width: 50px;
+  padding: 13px;
+  font-size: 30px;
+  color: #F7F7FF;
+  background-image: url('../icons8-google-web-search-filled-50.png');
+  box-shadow: 5px 5px 5px 0px black;
+  border: 0.5px solid black;
+  border-left: none;
+  background-color: #F7F7FF;
+}
+
+.button:focus {
+  outline: none;
 }

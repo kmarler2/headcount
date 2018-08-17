@@ -15,7 +15,7 @@ class Search extends Component {
           placeholder='Search for a district'
           type="text"
           onChange={ this.handleChange } />
-        <button className='button'>Search</button> 
+        <button className='button'></button> 
       </form>
     );
   }

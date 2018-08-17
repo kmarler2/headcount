@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import data from './data/kindergartners_in_full_day_program.js';
 import DistrictRepository from './helper.js';
-import CardContainer from './CardContainer/cardContainer.js';
-import Search from './Search/search.js'
+import CardContainer from './CardContainer/index.js';
+import Search from './Search/search.js';
+import ComparedCards from './ComparedCards';
 
 const district = new DistrictRepository(data);
 
@@ -11,24 +12,25 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      districtData: district.dataCleaner(data)
+      districtData: district.dataCleaner(data),
+      comparedDistricts: {}
     }
   }
 
-    findDistrict = (str) => {
+  findDistrict = (str) => {
     this.setState({ districtData: district.findAllMatches(str) })
   }
 
   findDistrictByClick = (str) => {
-   let district = district.findByName(str)
+   let d = district.findByName(str)
 
-   if (!district.selected && Object.keys(this.state.comparedDistricts).length < 2) {
-     district.selected = true
+   if (!d.selected && Object.keys(this.state.comparedDistricts).length < 2) {
+     d.selected = true
 
-     this.setState({ comparedDistricts: {...this.state.comparedDistricts, [district.location]: district } })
-     this.setState({ districtData: {...this.state.districtData, [district.location]: district }})
-   } else if (district.selected === true && district.location === str) {
-     district.selected = false
+     this.setState({ comparedDistricts: {...this.state.comparedDistricts, [d.location]: d } })
+     this.setState({ districtData: {...this.state.districtData, [d.location]: d }})
+   } else if (d.selected === true && d.location === str) {
+     d.selected = false
 
      Object.keys(this.state.comparedDistricts).reduce((acc, district) => {
        if (this.state.comparedDistricts[district].selected) {
@@ -37,7 +39,7 @@ class App extends Component {
        this.setState({ comparedDistricts: acc})
        return acc
      },{})
-     this.setState({ districtData: {...this.state.districtData, [district.location]: district }})
+     this.setState({ districtData: {...this.state.districtData, [d.location]: d }})
    }
   }
 
@@ -49,8 +51,14 @@ class App extends Component {
         findDistrict={ this.findDistrict } 
         findDistrictByClick={ this.findDistrictByClick } 
         />
+        <ComparedCards 
+        data={ this.state.comparedDistricts }
+        findDistrictByClick={ this.findDistrictByClick }
+        compareDistrictAverages={ district.compareDistrictAverages } 
+        />
         <CardContainer 
         data={ this.state.districtData }
+        findDistrictByClick={this.findDistrictByClick }
         />
       </div>
     );

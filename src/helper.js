@@ -1,4 +1,4 @@
-import data from './data/kindergartners_in_full_day_program.js';
+import kinderData from './data/kindergartners_in_full_day_program.js';
 
 export default class DistrictRepository {
   constructor(data) {
@@ -10,10 +10,11 @@ export default class DistrictRepository {
       let location = district.Location.toUpperCase();
       let year = district.TimeFrame
       let stat = Math.round(district.Data * 1000)/1000;
+      let correctStats = {[year]: stat}
+
       if(!stat) {
         stat = 0
       }
-      let correctStats = {[year]: stat}
 
       if(!dataObj[location]) {
         dataObj[location] = {
@@ -22,54 +23,49 @@ export default class DistrictRepository {
         }
       } 
       dataObj[location].stats = {...dataObj[location].stats, ...correctStats}
-       
       return dataObj
     },{})
-    return  dataObj
+      return  dataObj
   }
 
   findByName = (str) => {
-  if (!str) {
-    return
-  }
-  let cleanStr = str.toUpperCase()
+    if (!str) {
+      return
+    }
+    let cleanStr = str.toUpperCase()
     return this.stats[cleanStr]
   }
 
   findAllMatches = (str = '') => {
-  const obj = {}
-  const matches = Object.values(this.stats).filter(district => {
-    return district.location.includes(str.toUpperCase())
-  })
-  matches.forEach(match => {
-    const key = match.location;
-    obj[key] = match
-  })
-  return obj
-}
-
-findAverage = (str) => {
-  let districtData = this.findByName(str)
-  let stats = Object.values(districtData.stats)
-
-  let average = stats.reduce((average, stat) => {
-    return average + stat
-  })
-
-  return Math.round((average / stats.length)*1000)/1000
-}
-
-compareDistrictAverages = (district1, district2) => {
-  let upperCaseDistrictOne = district1.toUpperCase()
-  let upperCaseDistrictTwo = district2.toUpperCase()
-
-  let districtOne = this.findAverage(district1.toUpperCase());
-  let districtTwo = this.findAverage(district2.toUpperCase());
-
-  return {
-    [upperCaseDistrictOne]: districtOne,
-    [upperCaseDistrictTwo]: districtTwo,
-    "compared": Math.round((districtOne / districtTwo)*1000)/1000 
+    const obj = {}
+    const matches = Object.values(this.stats).filter(district => {
+      return district.location.includes(str.toUpperCase())
+    })
+    matches.forEach(match => {
+      const key = match.location;
+      obj[key] = match
+    })
+    return obj
   }
-}
+
+  findAverage = (str) => {
+    let districtData = this.findByName(str)
+    let stats = Object.values(districtData.stats)
+    let average = stats.reduce((average, stat) => {
+      return average + stat
+  })
+    return Math.round((average / stats.length)*1000)/1000
+  }
+
+  compareDistrictAverages = (district1, district2) => {
+    let upperCaseDistrictOne = district1.toUpperCase()
+    let upperCaseDistrictTwo = district2.toUpperCase()
+    let districtOne = this.findAverage(district1.toUpperCase());
+    let districtTwo = this.findAverage(district2.toUpperCase());
+    return {
+      [upperCaseDistrictOne]: districtOne,
+      [upperCaseDistrictTwo]: districtTwo,
+      "compared": Math.round((districtOne / districtTwo)*1000)/1000 
+    }
+  }
 }
