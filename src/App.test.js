@@ -10,7 +10,7 @@ describe('app', () => {
   let mockData;
   let district = new DistrictRepository(data);
 
-    beforeEach(() => {
+  beforeEach(() => {
     mockData = {
              '2004': 0.24,
               '2005': 0.278,
@@ -25,10 +25,14 @@ describe('app', () => {
               '2014': 0.741 }
 
     renderedApp = shallow(renderedApp=(<App />));
-  })
+  });
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  // ReactDOM.render(<App />, div);
-});
+  it('should exist', () => {
+    expect(renderedApp).toBeDefined()
+  });
+
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    // ReactDOM.render(<App />, div);
+  });
 });
