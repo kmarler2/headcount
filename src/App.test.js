@@ -35,4 +35,8 @@ describe('app', () => {
     const div = document.createElement('div');
     // ReactDOM.render(<App />, div);
   });
+
+  it('should match the snapshot', () => {
+    expect(renderedApp).toMatchSnapshot();
+  }) 
 });
