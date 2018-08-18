@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../Card/index.js';
-import PropTypes from 'prop-types';
 import './comparedCards.css';
+import PropTypes from 'prop-types';
 
 const DisplayComparedCards = (props) => {
   const dataToCompare = Object.keys(props.data);
@@ -36,6 +36,12 @@ const DisplayComparedCards = (props) => {
       { comparedCards }
     </div>
   );
+};
+
+DisplayComparedCards.propTypes = {
+  data: PropTypes.object,
+  findDistrictByClick: PropTypes.func,
+  compareDistrictAverages: PropTypes.func
 };
 
 export default DisplayComparedCards;
