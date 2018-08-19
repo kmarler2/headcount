@@ -23,7 +23,6 @@ describe('app', () => {
               '2012': 0.695,
               '2013': 0.703,
               '2014': 0.741 }
-
     renderedApp = shallow(renderedApp=(<App />));
   });
 
