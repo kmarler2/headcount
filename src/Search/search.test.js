@@ -13,4 +13,12 @@ describe('app', () => {
   beforeEach(() => {
     renderedApp = shallow(renderedApp=(<App />));
   });
+
+  it('should exist', () => {
+    expect(renderedApp).toBeDefined()
+  });
+
+  it('should match the snapshot', () => {
+    expect(renderedApp).toMatchSnapshot();
+  }) 
 })
