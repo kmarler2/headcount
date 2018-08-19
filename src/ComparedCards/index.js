@@ -25,7 +25,7 @@ const DisplayComparedCards = (props) => {
           <p className='comparisonHeader'> Comparison: </p>
           <p>{ dataToCompare[0] }: { data[dataToCompare[0]] }</p>
           <p>{ dataToCompare[1] }: { data[dataToCompare[1]] }</p>
-          <p>{ 'Compared' }: { data['compared'] }</p>
+          <p className='compared'>{ 'Compared' }: { data['compared'] }</p>
         </div>
       </div>
     );
