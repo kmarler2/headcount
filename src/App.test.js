@@ -39,4 +39,15 @@ describe('app', () => {
   it('should match the snapshot', () => {
     expect(renderedApp).toMatchSnapshot();
   }) 
+    
+  it('should add an object for each district', () => {
+    let expected = 181;
+    let actual = Object.keys(district.dataCleaner(data)).length;
+
+    renderedApp.setState({
+      districtData: district.dataCleaner(data),
+      comparedDistricts: {}, 
+    })
+    expect(actual).toEqual(expected);
+  })
 });
