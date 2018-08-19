@@ -1,14 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card should match the snapshot 1`] = `
+exports[`search should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Card
-    findDistrictByClick={[Function]}
-    location="Casper"
-    select="true"
-    stats={Object {}}
-/>,
+  Symbol(enzyme.__unrendered__): <Search />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -22,17 +17,16 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h3
-          className="location"
->
-          Casper
-</h3>,
-        <ul>
-          
-</ul>,
+        <input
+          className="input-form"
+          onChange={[Function]}
+          placeholder="Search for a district"
+          type="text"
+/>,
+        <button
+          className="button"
+/>,
       ],
-      "className": "card  select",
-      "onClick": [Function],
     },
     "ref": null,
     "rendered": Array [
@@ -41,26 +35,28 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Casper",
-          "className": "location",
+          "className": "input-form",
+          "onChange": [Function],
+          "placeholder": "Search for a district",
+          "type": "text",
         },
         "ref": null,
-        "rendered": "Casper",
-        "type": "h3",
+        "rendered": null,
+        "type": "input",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [],
+          "className": "button",
         },
         "ref": null,
-        "rendered": Array [],
-        "type": "ul",
+        "rendered": null,
+        "type": "button",
       },
     ],
-    "type": "div",
+    "type": "form",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -69,17 +65,16 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h3
-            className="location"
->
-            Casper
-</h3>,
-          <ul>
-            
-</ul>,
+          <input
+            className="input-form"
+            onChange={[Function]}
+            placeholder="Search for a district"
+            type="text"
+/>,
+          <button
+            className="button"
+/>,
         ],
-        "className": "card  select",
-        "onClick": [Function],
       },
       "ref": null,
       "rendered": Array [
@@ -88,26 +83,28 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Casper",
-            "className": "location",
+            "className": "input-form",
+            "onChange": [Function],
+            "placeholder": "Search for a district",
+            "type": "text",
           },
           "ref": null,
-          "rendered": "Casper",
-          "type": "h3",
+          "rendered": null,
+          "type": "input",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [],
+            "className": "button",
           },
           "ref": null,
-          "rendered": Array [],
-          "type": "ul",
+          "rendered": null,
+          "type": "button",
         },
       ],
-      "type": "div",
+      "type": "form",
     },
   ],
   Symbol(enzyme.__options__): Object {
