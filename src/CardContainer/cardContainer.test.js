@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from '../App';
 import { shallow } from 'enzyme';
-import DistrictRepository from './helper.js'
-import data from './data/kindergartners_in_full_day_program.js';
+import DistrictRepository from '../helper.js'
+import data from '../data/kindergartners_in_full_day_program.js';
 
 describe('app', () => { 
   let renderedApp;
@@ -25,5 +25,9 @@ describe('app', () => {
               '2014': 0.741 }
 
     renderedApp = shallow(renderedApp=(<App />));
+  });
+
+  it('should exist', () => {
+    expect(renderedApp).toBeDefined()
   });
 })
