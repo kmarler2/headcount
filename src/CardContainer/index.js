@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../Card/index.js';
+import PropTypes from 'prop-types';
 
 const CardContainer = ({data, findDistrictByClick}) => {
   const districtData = Object.keys(data).map((district, index) => {
@@ -9,13 +10,18 @@ const CardContainer = ({data, findDistrictByClick}) => {
       key={index}
       select={data[district].selected}
       findDistrictByClick={findDistrictByClick}
-    />
-  })
-  return(
+    />;
+  });
+  return (
     <div>
       {districtData}
     </div>
-  )
-}
+  );
+};
+
+CardContainer.propTypes = {
+  data: PropTypes.object,
+  findDistrictByClick: PropTypes.func
+};
 
 export default CardContainer;

@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
   return (
@@ -13,14 +14,21 @@ const Card = (props) => {
           return <li 
             key={index}
             style={props.stats[stat] >= 0.5 ? {color: '#F7F7FF'} : {color: '#495867'}}
-            >
+          >
             {stat}: {props.stats[stat]}
-            </li>; 
-          })
+          </li>; 
+        })
         }
       </ul>
     </div>
   );
+};
+
+Card.propTypes = {
+  select: PropTypes.string,
+  findDistrictByClick: PropTypes.func,
+  location: PropTypes.string,
+  stats: PropTypes.number
 };
 
 export default Card;

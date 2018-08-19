@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './search.css';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
   
-  handleChange = (e) => {
-    this.props.findDistrict(e.target.value);
+  handleChange = (event) => {
+    this.props.findDistrict(event.target.value);
   }
 
   render() {
@@ -20,5 +21,9 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  findDistrict: PropTypes.func
+};
 
 export default Search;
