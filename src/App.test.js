@@ -50,4 +50,13 @@ describe('app', () => {
     })
     expect(actual).toEqual(expected);
   })
+
+  it('should have the correct default state', () => {
+    let actual = renderedApp.state();
+    let expected = {
+      districtData: district.dataCleaner(data),
+      comparedDistricts: {}
+    }
+    expect(actual).toEqual(expected)
+  })
 });
