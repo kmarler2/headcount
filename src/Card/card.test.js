@@ -1,24 +1,30 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from '../App';
 import { shallow } from 'enzyme';
-import DistrictRepository from '../helper.js'
-import data from '../data/kindergartners_in_full_day_program.js';
+import Card from './index';
 
-describe('app', () => { 
-  let renderedApp;
-  let mockData;
-  let district = new DistrictRepository(data);
-
+describe('Card', () => {
+  let wrapper;
+  let mockLocation = 'Casper';
+  let mockStats = {};
+  let mockSelect = 'true';
+  let mockFindDistrictByClick = jest.fn();
+  let mockKey = '2';
   beforeEach(() => {
-    renderedApp = shallow(renderedApp=(<App />));
-  });
-
-  it('should exist', () => {
-    expect(renderedApp).toBeDefined()
-  });
+    wrapper = shallow(<Card
+                      location={mockLocation}
+                      stats={mockStats}
+                      key={mockKey}
+                      select={mockSelect}
+                      findDistrictByClick={mockFindDistrictByClick}
+                      />)
+  })
 
   it('should match the snapshot', () => {
-    expect(renderedApp).toMatchSnapshot();
-  }) 
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should call selectCard on click', () => {
+    wrapper.find('.card').simulate('click');
+    expect(mockFindDistrictByClick).toHaveBeenCalled();
+  })
 })
