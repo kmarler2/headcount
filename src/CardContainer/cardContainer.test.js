@@ -17,8 +17,4 @@ describe('CardContainer', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
-
-  it('should create the correct number of cards', () => {
-
-  })
 })
