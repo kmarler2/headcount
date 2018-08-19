@@ -30,4 +30,8 @@ describe('app', () => {
   it('should exist', () => {
     expect(renderedApp).toBeDefined()
   });
+
+  it('should match the snapshot', () => {
+    expect(renderedApp).toMatchSnapshot();
+  }) 
 })
