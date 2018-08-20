@@ -11,20 +11,24 @@ describe('Card', () => {
   let mockKey = '2';
   beforeEach(() => {
     wrapper = shallow(<Card
-                      location={mockLocation}
-                      stats={mockStats}
-                      key={mockKey}
-                      select={mockSelect}
-                      findDistrictByClick={mockFindDistrictByClick}
-                      />)
-  })
+      location={mockLocation}
+      stats={mockStats}
+      key={mockKey}
+      select={mockSelect}
+      findDistrictByClick={mockFindDistrictByClick}
+    />);
+  });
+  
+  it('should exist', () => {
+    expect(wrapper).toBeDefined();
+  });
 
   it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
-  })
+    expect(wrapper).toMatchSnapshot();
+  });
 
-  it('should call selectCard on click', () => {
+  it('should call findDistrictByClick when clicked', () => {
     wrapper.find('.card').simulate('click');
     expect(mockFindDistrictByClick).toHaveBeenCalled();
-  })
-})
+  });
+});
